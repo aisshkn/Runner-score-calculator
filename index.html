@@ -1,0 +1,21 @@
+# Prompt the user for the number of participants
+n = int(input("Enter the number of participants: "))
+
+# Prompt the user to enter the scores of the participants separated by spaces
+scores = list(map(int, input("Enter the scores of the participants separated by spaces: ").split()))
+
+# Check if there are at least two distinct scores
+if len(scores) <= 1:
+    print("Not enough participants to determine a runner-up score.")
+else:
+    # Remove the highest score to find the runner-up
+    max_score = max(scores)
+    runner_up_scores = [score for score in scores if score != max_score]
+    
+    if runner_up_scores:
+        # Find the runner-up score
+        runner_up_score = max(runner_up_scores)
+        # Print the runner-up score
+        print("The runner-up score is:", runner_up_score)
+    else:
+        print("All participants have the same score; no runner-up score available.")
